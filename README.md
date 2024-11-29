@@ -57,3 +57,20 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Creating the SQL wasm for tree-sitter
+
+I tried using [this repo](https://github.com/DerekStride/tree-sitter-sql) for the grammar.
+Then i followed these stepts (require Node and Docker):
+
+```bash
+git clone git@github.com:DerekStride/tree-sitter-sql.git
+cd tree-sitter-sql
+npm install -g tree-sitter-cli
+npx tree-sitter generate
+npx tree-sitter build --wasm
+```
+
+This will produce a `tree-sitter-sql.wasm` file but it gave me errors.
+
+Switching to [this repo](https://github.com/m-novikov/tree-sitter-sql) helped. You can simply download the wasm here: https://github.com/m-novikov/tree-sitter-sql/blob/main/docs/tree-sitter-sql.wasm
